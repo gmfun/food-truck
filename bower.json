@@ -1,0 +1,16 @@
+{
+  "name": "food cart",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-google-maps": "~2.1.5",
+    "bootstrap": "~3.3.5"
+  }
+}

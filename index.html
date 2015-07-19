@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Cart</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <!--<script src='http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&language=en&v=3.17'></script>-->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/lodash/lodash.min.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
+    <script src="app.js"></script>
+    <script src="mapCtrl.js"></script>
+</head>
+<body ng-app="foodApp" ng-controller="mapCtrl">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom' bounds="map.bounds" pan="true">
+        <!--<ui-gmap-markers models='data' idKey='data.objectid' coords="data.location">-->
+        <!--</ui-gmap-markers>-->
+        <ui-gmap-markers idKey="'objectid'" coords="'self'" models="data" icon="'assets/food-truck.png'" doCluster="true"></ui-gmap-markers>
+    </ui-gmap-google-map>
+
+{{map.center}}
+</body>
+</html>
