@@ -5,8 +5,8 @@ foodApp.controller('mapCtrl', ['$scope', '$http', 'uiGmapGoogleMapApi', function
         push_cart: true
     };
     $scope.map = {
-        center: { latitude: 37.75, longitude: -122.43 },
-        zoom: 13,
+        center: { latitude: 37.72345985935402, longitude: -122.41944282531739 },
+        zoom: 14,
         bounds: {},
         event: {
             click: function(a, b, c){
@@ -39,6 +39,7 @@ foodApp.controller('mapCtrl', ['$scope', '$http', 'uiGmapGoogleMapApi', function
     $scope.searchbox = { template:'searchbox.tpl.html', events:events};
     $scope.bounds = {};
     $scope.$watchCollection(function(){ return $scope.map.bounds}, function(current, old){
+        console.log($scope.map.center);
         if(current.northeast && !$scope.showInfo){
             var ne = current.northeast;
             var sw = current.southwest;
@@ -77,7 +78,7 @@ foodApp.controller('mapCtrl', ['$scope', '$http', 'uiGmapGoogleMapApi', function
         })
     }
     $scope.reset = function () {
-        $scope.map.center = { latitude: 37.75, longitude: -122.43 };
+        $scope.map.center = { latitude: 37.72345985935402, longitude: -122.41944282531739 };
         $scope.marker = {};
     }
 }]);

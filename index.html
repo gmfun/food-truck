@@ -32,12 +32,14 @@
                 </div>
             </ui-gmap-windows>
         </ui-gmap-markers>
-
+        <ui-gmap-window>
+            jkhfkjhf
+        </ui-gmap-window>
     </ui-gmap-google-map>
     <div ng-show="markers.length == 0" id="goback">
         <button class="btn" ng-click="reset()">Go back to SF</button>
     </div>
-    <div id="legend" ng-hide="(markers.length == 0)">
+    <div id="legend" ng-hide="(markers.length == 0) || showInfo">
         <div>
             <label for="truck">
                 <input type="checkbox" id="truck" ng-model="filter.truck"/>
