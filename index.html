@@ -15,12 +15,43 @@
     <script src="mapCtrl.js"></script>
 </head>
 <body ng-app="foodApp" ng-controller="mapCtrl">
-    <ui-gmap-google-map center='map.center' zoom='map.zoom' bounds="map.bounds" pan="true">
-        <!--<ui-gmap-markers models='data' idKey='data.objectid' coords="data.location">-->
-        <!--</ui-gmap-markers>-->
-        <ui-gmap-markers idKey="'objectid'" coords="'self'" models="data" icon="'assets/food-truck.png'" doCluster="true"></ui-gmap-markers>
-    </ui-gmap-google-map>
+<script type="text/ng-template" id="searchbox.tpl.html">
+    <input type="text" id="pac-input" placeholder="Search Box">
+</script>
+    <ui-gmap-google-map center='map.center' zoom='map.zoom' bounds="map.bounds" pan="'true'">
+        <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
+        <ui-gmap-marker model="marker" coords="marker.location" idKey="'place'" visible="'show'"></ui-gmap-marker>
+        <ui-gmap-markers idKey="'objectid'" coords="'location'" models="map.markers" icon="'icon'" doCluster="true" events="map.event">
+            <ui-gmap-windows show="'showWindow'" closeClick="'closeClick'">
+                <div>
+                    <p ng-non-bindable>{{applicant}}</p>
 
-{{map.center}}
+                    <p ng-non-bindable>Servers {{fooditems}}</p>
+
+                    <p ng-non-bindable class="muted">{{locationdescription}}</p>
+                </div>
+            </ui-gmap-windows>
+        </ui-gmap-markers>
+
+    </ui-gmap-google-map>
+    <div ng-show="markers.length == 0" id="goback">
+        <button class="btn" ng-click="reset()">Go back to SF</button>
+    </div>
+    <div id="legend" ng-hide="(markers.length == 0)">
+        <div>
+            <label for="truck">
+                <input type="checkbox" id="truck" ng-model="filter.truck"/>
+                <img src="assets/food-truck.png" alt="truck"/> Truck
+            </label>
+        </div>
+        <div>
+            <label for="push-cart">
+                <input type="checkbox" id="push-cart" ng-model="filter.push_cart"/>
+                <img src="assets/push-cart.png" alt="push-cart"/> Push Cart
+            </label>
+
+
+        </div>
+    </div>
 </body>
 </html>

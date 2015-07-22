@@ -3,7 +3,7 @@ var foodApp = angular.module('foodApp', ['uiGmapgoogle-maps'])
         uiGmapGoogleMapApiProvider.configure({
             //    key: 'your api key',
             v: '3.17',
-            libraries: 'weather,geometry,places'
+            libraries: 'places'
         });
     });
 

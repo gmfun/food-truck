@@ -1,3 +1,45 @@
 .angular-google-map-container {
-    height: 400px;
+    height: 900px;
+}
+#pac-input {
+    margin-top: 16px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+#goback {
+    position: absolute;
+    top: 28px;
+    right: 4px;
+}
+.btn {
+    width: 300px;
+    height: 38px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    color: #757A7C;
+    font-size: large;
+}
+#legend {
+    position: absolute;
+    top: 39px;
+    right: 29px;
+    background-color: rgba(0, 0, 0, 0.16);
+    padding: 10px;
 }
