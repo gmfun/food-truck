@@ -11,35 +11,23 @@
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/lodash/lodash.min.js"></script>
     <script src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
-    <script src="app.js"></script>
-    <script src="mapCtrl.js"></script>
+    <script src="dist/all.js"></script>
 </head>
 <body ng-app="foodApp" ng-controller="mapCtrl">
 <script type="text/ng-template" id="searchbox.tpl.html">
     <input type="text" id="pac-input" placeholder="Search Box">
 </script>
-    <ui-gmap-google-map center='map.center' zoom='map.zoom' bounds="map.bounds" pan="'true'">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom' bounds="map.bounds" pan="true" events="map.events">
         <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box>
         <ui-gmap-marker model="marker" coords="marker.location" idKey="'place'" visible="'show'"></ui-gmap-marker>
-        <ui-gmap-markers idKey="'objectid'" coords="'location'" models="map.markers" icon="'icon'" doCluster="true" events="map.event">
-            <ui-gmap-windows show="'showWindow'" closeClick="'closeClick'">
-                <div>
-                    <p ng-non-bindable>{{applicant}}</p>
+        <ui-gmap-markers idKey="'objectid'" coords="'location'" models="map.markers" icon="'icon'" doCluster="true" events="'events'">
 
-                    <p ng-non-bindable>Servers {{fooditems}}</p>
-
-                    <p ng-non-bindable class="muted">{{locationdescription}}</p>
-                </div>
-            </ui-gmap-windows>
         </ui-gmap-markers>
-        <ui-gmap-window>
-            jkhfkjhf
-        </ui-gmap-window>
     </ui-gmap-google-map>
     <div ng-show="markers.length == 0" id="goback">
         <button class="btn" ng-click="reset()">Go back to SF</button>
     </div>
-    <div id="legend" ng-hide="(markers.length == 0) || showInfo">
+    <div id="legend" ng-hide="(markers.length == 0)">
         <div>
             <label for="truck">
                 <input type="checkbox" id="truck" ng-model="filter.truck"/>
@@ -53,6 +41,19 @@
             </label>
 
 
+        </div>
+    </div>
+    <div id="info" class="flex-column" ng-show="selected.show">
+        <div class="flex-row spaced">
+            <p id="head">{{selected.name}}</p>
+        </div>
+        <div class="column">
+            <p>Address: {{selected.address}}</p>
+            <span>Items:-</span>
+            <p>{{selected.serve}}</p>
+        </div>
+        <div id="close" ng-click="selected.show=false">
+            &#10006;
         </div>
     </div>
 </body>

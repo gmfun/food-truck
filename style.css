@@ -43,3 +43,29 @@
     background-color: rgba(0, 0, 0, 0.16);
     padding: 10px;
 }
+div#info {
+    position: absolute;
+    top: 54px;
+    background-color: #fff;
+    left: 100px;
+    width: 400px;
+    padding: 10px;
+    color: rgb(71, 71, 71);
+    font-family: Roboto;
+    border-radius: 2px 0 0 2px;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+#info#head{
+
+}
+#close {
+    position: absolute;
+    top: 3px;
+    right: 4%;
+    color: #898D91;
+    padding: 11px;
+    font-size: 17px;
+    cursor: pointer;
+
+}
