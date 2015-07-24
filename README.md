@@ -8,11 +8,14 @@ Search for food truck around a particular location using freely available API.
 
 - AngularJs
 - AngularGoogleMap
+- Gulp.js (gulp-concat)
 
 ###Features
-- Search any location and find food-truck nearby.
-- Filter food-truck according to type.
-- Get selected food-trucks name address and items served.
+- Search any location and find food-truck nearby
+- Filter food-truck according to type
+- Get selected food-trucks name address and items served
+- Highlight selected marker and bring it to center
+- Cluster up markers
 
 ###Why Angular?
 Angular is aptly suited for this project due to its two way data binding feature. Any change in map's bounds triggers API calls. And the gathered data is seamlessly reflected in ui, without any manual DOM manipulation.
