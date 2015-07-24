@@ -4,10 +4,10 @@ foodApp.controller('mapCtrl', ['$scope', '$http', 'uiGmapGoogleMapApi', function
         truck: true,
         push_cart: true
     };
-    var selectedMarker
+    var selectedMarker;
     $scope.selected = {};
     $scope.map = {
-        center: { latitude: 37.72345985935402, longitude: -122.41944282531739 },
+        center: { latitude: 37.72345985935402, longitude: -122.41944282531739 }, //initial center of map
         zoom: 14,
         bounds: {},
         events: {
@@ -26,7 +26,7 @@ foodApp.controller('mapCtrl', ['$scope', '$http', 'uiGmapGoogleMapApi', function
     $scope.map.markers = [{
             location: $scope.map.center,
             objectid: '1',
-            icons: "assets/food-truck.png",
+            icon: "assets/food-truck.png",
             closeClick: function(){
                 $scope.showInfo =  false;
             }
@@ -66,11 +66,11 @@ foodApp.controller('mapCtrl', ['$scope', '$http', 'uiGmapGoogleMapApi', function
                     v.selected = true
                     v.events = {
                         click: function(a, b, c){
+                            // store the selected marker in a variable
                             if(selectedMarker)
                                 selectedMarker.icon = selectedMarker.facilitytype=="Push Cart" ? 'assets/push-cart.png' : 'assets/food-truck.png';
                             selectedMarker = c;
                             selectedMarker.icon = selectedMarker.facilitytype=="Push Cart" ? 'assets/push-cart-active.png' : 'assets/food-truck-active.png';
-                            console.log(a, b, c);
                             $scope.map.center = angular.copy(c.location);
                             $scope.selected = {
                                 name: c.applicant,
